@@ -18,7 +18,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
         return createdTimeEntry;
     };
 
-    public TimeEntry find(long timeEntryId) {
+    public TimeEntry find(Long timeEntryId) {
         return timeEntryMap.get(timeEntryId);
     }
 
@@ -28,14 +28,14 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
 
     };
 
-    public TimeEntry update(long eq, TimeEntry timeEntry){
+    public TimeEntry update(Long eq, TimeEntry timeEntry){
         TimeEntry updatedTimeEntry = new TimeEntry(eq, timeEntry.getProjectId(), timeEntry.getUserId(), timeEntry.getDate(), timeEntry.getHours());
         timeEntryMap.put(updatedTimeEntry.getId() ,updatedTimeEntry);
 
         return updatedTimeEntry;
     };
 
-    public void delete(long timeEntryId){
+    public void delete(Long timeEntryId){
 
         timeEntryMap.remove(timeEntryId);
 
